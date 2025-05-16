@@ -1,4 +1,4 @@
-# Listing all countries based on the revenue (highest to lowest)
+# Identifying countries based on the revenue (highest to lowest)
 [Tableau visualisation] (https://public.tableau.com/views/Rockbusterglobalsales/Sheet1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 SELECT country,
@@ -12,7 +12,7 @@ INNER JOIN payment E ON a.customer_id = E.customer_id
 GROUP BY country
 ORDER BY 3 DESC
 
-# Finding top paying customers
+# Identifying top paying customers
 
 SELECT
 A.customer_id,
