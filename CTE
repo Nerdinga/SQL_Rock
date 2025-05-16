@@ -1,0 +1,26 @@
+# Finding how many of top 5 customers live in each country
+
+WITH top_5 (customer_ID) AS
+(SELECT A.customer_id
+FROM payment A
+INNER JOIN customer B ON A.customer_id = B.customer_id
+INNER JOIN address C ON B.address_id = C.address_id
+INNER JOIN city D ON C.city_id = D.city_id
+INNER JOIN country E ON D.country_ID = E.country_ID
+WHERE D.city IN (SELECT city FROM top_10_cities)
+GROUP BY A.customer_id,
+B.first_name,
+B.last_name,
+E.country,
+D.city
+ORDER BY SUM(A.amount) DESC
+LIMIT 5)
+SELECT 	country,
+		COUNT(DISTINCT W.customer_ID) AS all_customer_count,
+		COUNT(DISTINCT top_5.customer_ID) AS top_customers
+FROM customer W
+INNER JOIN address X ON W.address_id = X.address_id
+INNER JOIN city Y ON X.city_id = Y.city_id
+INNER JOIN country Z ON Y.country_ID = Z.country_ID
+LEFT JOIN top_5 ON top_5.customer_ID = W.customer_ID
+GROUP BY country
