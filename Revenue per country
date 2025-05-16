@@ -11,3 +11,26 @@ INNER JOIN country D ON C.country_ID = D.country_ID
 INNER JOIN payment E ON a.customer_id = E.customer_id
 GROUP BY country
 ORDER BY 3 DESC
+
+# Finding top paying customers
+
+SELECT
+A.customer_id,
+B.first_name AS customer_first_name,
+B.last_name AS customer_last_name,
+E.country,
+D.city,
+SUM(A.amount) AS total_amount_paid
+FROM payment A
+INNER JOIN customer B ON A.customer_id = B.customer_id
+INNER JOIN address C ON B.address_id = C.address_id
+INNER JOIN city D ON C.city_id = D.city_id
+INNER JOIN country E ON D.country_ID = E.country_ID
+WHERE D.city IN (SELECT city FROM top_10_cities)
+GROUP BY A.customer_id,
+B.first_name,
+B.last_name,
+E.country,
+D.city
+ORDER BY SUM(A.amount) DESC
+LIMIT 5
