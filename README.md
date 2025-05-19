@@ -14,7 +14,7 @@ Facing stiff competition from streaming services such as Netflix and Amazon Prim
 # Tools used througout the project:
 * Postgres
 * DbVisualizer
-* Tableu
+* Tableau
 * Excel
 * Powerpoint
 
