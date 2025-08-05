@@ -27,4 +27,4 @@ Facing stiff competition from streaming services such as Netflix and Amazon Prim
 6) To create Tableau visualisations based on the analysis results;
 7) To created a final Excel report and a Power Point presentation.
 
-[Tableau visualisation] (https://public.tableau.com/views/Rockbusterglobalsales/Sheet1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+[Tableau visualisation](https://public.tableau.com/views/Rockbusterglobalsales/Sheet1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
